@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>홍보문 — 나단</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --green:  #2c4a2e;
+      --yellow: #e8c547;
+      --cream:  #fafaf6;
+      --text:   #1a1a1a;
+      --light:  #555;
+    }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    body {
+      width: 210mm;
+      min-height: 297mm;
+      background: var(--cream);
+      font-family: 'Noto Serif KR', Georgia, serif;
+      color: var(--text);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── 상단 헤더 ── */
+    header {
+      background: var(--green);
+      color: white;
+      padding: 14mm 16mm 10mm;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 6mm;
+    }
+
+    .publisher {
+      font-size: 9pt;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.75;
+    }
+
+    .author-tag {
+      font-size: 9pt;
+      opacity: 0.75;
+    }
+
+    header h1 {
+      font-size: 32pt;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 3mm;
+    }
+
+    header .subtitle {
+      font-size: 12pt;
+      font-style: italic;
+      opacity: 0.85;
+    }
+
+    /* ── 노란 띠 ── */
+    .accent-bar {
+      background: var(--yellow);
+      color: var(--green);
+      padding: 3.5mm 16mm;
+      font-size: 10pt;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* ── 본문 ── */
+    main {
+      flex: 1;
+      padding: 10mm 16mm;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8mm;
+    }
+
+    section h2 {
+      font-size: 11pt;
+      color: var(--green);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-bottom: 2px solid var(--yellow);
+      padding-bottom: 2mm;
+      margin-bottom: 4mm;
+    }
+
+    section p, section li {
+      font-size: 10pt;
+      color: var(--light);
+      line-height: 1.85;
+    }
+
+    section ul {
+      padding-left: 4mm;
+      list-style: none;
+    }
+
+    section ul li::before {
+      content: "— ";
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    /* ── 후원 박스 ── */
+    .donation-box {
+      grid-column: 1 / -1;
+      background: var(--green);
+      color: white;
+      border-radius: 3mm;
+      padding: 7mm 10mm;
+      display: flex;
+      gap: 8mm;
+      align-items: center;
+    }
+
+    .donation-icon {
+      font-size: 28pt;
+      flex-shrink: 0;
+    }
+
+    .donation-text h3 {
+      font-size: 13pt;
+      font-weight: 700;
+      margin-bottom: 2mm;
+    }
+
+    .donation-text p {
+      font-size: 10pt;
+      line-height: 1.7;
+      opacity: 0.9;
+    }
+
+    .donation-amount {
+      flex-shrink: 0;
+      text-align: center;
+      background: var(--yellow);
+      color: var(--green);
+      border-radius: 2mm;
+      padding: 4mm 6mm;
+    }
+
+    .donation-amount .won {
+      font-size: 22pt;
+      font-weight: 700;
+      line-height: 1;
+      display: block;
+    }
+
+    .donation-amount .per {
+      font-size: 8pt;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── 구매 안내 박스 ── */
+    .order-box {
+      grid-column: 1 / -1;
+      border: 2px solid var(--yellow);
+      border-radius: 3mm;
+      padding: 5mm 8mm;
+    }
+
+    .order-box h2 {
+      border-bottom-color: var(--green);
+      color: var(--green);
+    }
+
+    .steps {
+      display: flex;
+      gap: 4mm;
+      margin-top: 2mm;
+    }
+
+    .step {
+      flex: 1;
+      text-align: center;
+    }
+
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 7mm;
+      height: 7mm;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      font-size: 9pt;
+      font-weight: 700;
+      margin-bottom: 2mm;
+    }
+
+    .step p {
+      font-size: 9pt;
+      color: var(--light);
+      line-height: 1.6;
+    }
+
+    .step .highlight {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--green);
+      font-weight: 700;
+      padding: 0.5mm 2mm;
+      border-radius: 1mm;
+      font-size: 10pt;
+    }
+
+    /* ── 하단 푸터 ── */
+    footer {
+      background: var(--green);
+      color: white;
+      padding: 5mm 16mm;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 9pt;
+    }
+
+    footer .contact {
+      opacity: 0.8;
+    }
+
+    footer .logo {
+      font-weight: 700;
+      font-size: 10pt;
+      letter-spacing: 0.1em;
+    }
+
+    @media print {
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 상단 헤더 -->
+  <header>
+    <div class="header-top">
+      <span class="publisher">상어 출판사</span>
+      <span class="author-tag">나단 지음</span>
+    </div>
+    <h1>책 제목을<br>여기에</h1>
+    <p class="subtitle">부제목 또는 한 줄 소개를 여기에 적어주세요</p>
+  </header>
+
+  <!-- 노란 띠 -->
+  <div class="accent-bar">
+    <span>📖 &nbsp;지금 예약 주문 받는 중</span>
+    <span>상어 출판사 기부 이벤트 진행 중</span>
+  </div>
+
+  <!-- 본문 -->
+  <main>
+
+    <!-- 책 소개 -->
+    <section>
+      <h2>책 소개</h2>
+      <p>
+        이 책은 …… 에 대한 이야기입니다.<br><br>
+        두 번째 문단: 책의 핵심 내용이나 메시지를 여기에 적어주세요.
+        독자가 왜 이 책을 읽어야 하는지 간결하게 전달합니다.<br><br>
+        세 번째 문단: 저자 나단에 대한 짧은 소개나 책을 쓴 계기를 넣어도 좋습니다.
+      </p>
+    </section>
+
+    <!-- 기부 이벤트 소개 -->
+    <section>
+      <h2>기부 이벤트 안내</h2>
+      <ul>
+        <li>상어 출판사와 나단이 함께하는 후원 캠페인</li>
+        <li>책 한 권 구매 시 7,000원이 자동 후원됩니다</li>
+        <li>후원금은 [후원처/목적]에 전달됩니다</li>
+        <li>구매 시 후원창에 <strong style="color:#2c4a2e">띵똥</strong>을 입력해주세요</li>
+        <li>모금 현황은 웹사이트에서 실시간 확인 가능합니다</li>
+      </ul>
+    </section>
+
+    <!-- 후원 하이라이트 박스 -->
+    <div class="donation-box">
+      <div class="donation-icon">🦈</div>
+      <div class="donation-text">
+        <h3>상어 출판사 × 나단 기부 캠페인</h3>
+        <p>
+          책 한 권을 구매하실 때마다 후원금이 적립됩니다.<br>
+          구매 완료 후 후원창에 <strong>띵똥</strong>을 꼭 입력해주세요.
+        </p>
+      </div>
+      <div class="donation-amount">
+        <span class="won">7,000원</span>
+        <span class="per">1권 구매 시 후원</span>
+      </div>
+    </div>
+
+    <!-- 구매 방법 -->
+    <div class="order-box">
+      <h2>구매 방법</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <p>웹사이트에서<br>주문서 작성</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <p>입금 안내<br>메일 수신</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <p>입금 후<br>후원창에<br><span class="highlight">띵똥</span> 입력</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <p>주문 확인<br>메일 수신</p>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <p>매달 말일<br>택배 배송</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- 하단 푸터 -->
+  <footer>
+    <span class="contact">문의: your@gmail.com</span>
+    <span class="logo">상어 출판사</span>
+  </footer>
+
+</body>
+</html>
